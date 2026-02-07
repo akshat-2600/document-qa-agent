@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Q&A AI Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📄 Document Q&A AI Agent</h1>
+            <p class="subtitle">Upload a PDF and ask questions powered by AI</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel: Upload & Info -->
+            <div class="left-panel">
+                <div class="upload-section">
+                    <h2>📤 Upload Document</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="pdfInput" accept=".pdf" hidden>
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">Drag & Drop PDF here</p>
+                        <p class="upload-subtext">or</p>
+                        <button class="btn-primary" id="chooseFileBtn">Choose PDF File</button>
+                    </div>
+                    <div id="uploadStatus" class="upload-status"></div>
+                </div>
+
+                <!-- Info Section -->
+                <div class="info-section">
+                    <h3>💡 Example Questions</h3>
+                    <ul class="example-list">
+                        <li>What is this paper about?</li>
+                        <li>Summarize the methodology</li>
+                        <li>What accuracy scores are reported?</li>
+                        <li>List the key findings</li>
+                        <li>Find papers about neural networks</li>
+                    </ul>
+
+                    <h3>✨ Features</h3>
+                    <ul class="feature-list">
+                        <li>🤖 AI-powered responses</li>
+                        <li>📊 Extract tables & metrics</li>
+                        <li>📝 Summarize sections</li>
+                        <li>🔍 ArXiv paper search</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Panel: Chat Interface -->
+            <div class="right-panel">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2>💬 Chat</h2>
+                        <div class="status-indicator">
+                            <span class="status-dot" id="statusDot"></span>
+                            <span id="statusText">Ready</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p><strong>👋 Welcome!</strong></p>
+                                <p>Upload a PDF document to get started. Once processed, you can ask any questions about the content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input 
+                            type="text" 
+                            id="questionInput" 
+                            placeholder="Type your question here..." 
+                            class="chat-input"
+                            disabled
+                        >
+                        <button id="sendBtn" class="btn-send" disabled>
+                            <span>Send</span>
+                            <span class="send-icon">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by AI • Multi-modal PDF Processing • Enterprise-Ready</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
+
