@@ -59,7 +59,7 @@ class QueryEngine:
 
         if not processed_docs:
             logger.warning("No documents were processed.")
-            self.documents_ready = False
+            # self.documents_ready = False/
             return {}
 
         self.documents_ready = True
